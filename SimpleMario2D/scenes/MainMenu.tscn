@@ -1,0 +1,347 @@
+[gd_scene load_steps=18 format=3 uid="uid://ducip86xa4koq"]
+
+[ext_resource type="Script" uid="uid://chfurm3sbnlig" path="res://scripts/main_menu.gd" id="1_ow34m"]
+[ext_resource type="Texture2D" uid="uid://i0dirf5581u0" path="res://assets/game.png" id="1_yqorp"]
+[ext_resource type="FontFile" uid="uid://c3j81obcdcffv" path="res://assets/fonts/ShortBaby-Mg2w.ttf" id="2_0ykhv"]
+[ext_resource type="Script" uid="uid://s0ulyien1xix" path="res://scripts/options.gd" id="4_ow34m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ykhv"]
+texture = ExtResource("1_yqorp")
+modulate_color = Color(0.39993572, 0.3999357, 0.39993563, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukcvp"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wh52"]
+bg_color = Color(0.43057036, 0.4305704, 0.4305704, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow34m"]
+bg_color = Color(0.3575665, 0.35756636, 0.35756636, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l72w3"]
+bg_color = Color(0.35456306, 0.3545631, 0.354563, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mipys"]
+bg_color = Color(0.43057036, 0.4305704, 0.4305704, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_826wr"]
+bg_color = Color(0.36961013, 0.36961022, 0.36961004, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucygd"]
+bg_color = Color(0.4460035, 0.4460035, 0.44600332, 1)
+
+[sub_resource type="GDScript" id="GDScript_ow34m"]
+script/source = "extends CheckButton
+
+
+func _on_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+"
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ow34m"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+color = Color(1, 1, 1, 1)
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l72w3"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+color = Color(0.4753, 0.582485, 0.97, 1)
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_826wr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+color = Color(0.4753, 0.582485, 0.97, 1)
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 24
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ucygd"]
+color = Color(0.4753, 0.582485, 0.97, 1)
+thickness = 24
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+script = ExtResource("1_ow34m")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0ykhv")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.25
+offset_top = -378.0
+offset_right = 229.25
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukcvp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2wh52")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ow34m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l72w3")
+action_mode = 0
+button_mask = 0
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukcvp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mipys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ow34m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_826wr")
+action_mode = 0
+button_mask = 0
+text = "Options"
+
+[node name="Button3" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukcvp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2wh52")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ow34m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ucygd")
+action_mode = 0
+button_mask = 0
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.5
+offset_top = -239.0
+offset_right = 368.5
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21166372, 0.72901773, 0.46678835, 1)
+theme_override_colors/font_shadow_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+theme_override_constants/shadow_offset_x = 16
+theme_override_fonts/font = ExtResource("2_0ykhv")
+theme_override_font_sizes/font_size = 100
+text = "Simple Mario 2D"
+
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -282.5
+offset_top = -448.0
+offset_right = 282.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_ow34m")
+
+[node name="Label" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 68.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.5
+offset_top = 161.0
+offset_right = -380.5
+offset_bottom = 229.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.5
+offset_top = 261.0
+offset_right = -380.5
+offset_bottom = 329.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 99.5
+offset_top = -55.0
+offset_right = -101.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukcvp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2wh52")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ow34m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ucygd")
+action_mode = 0
+button_mask = 0
+text = "Back"
+
+[node name="DisplayToggle" type="CheckButton" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -172.0
+offset_right = 215.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Maximized Screen"
+script = SubResource("GDScript_ow34m")
+
+[node name="MusicSlider" type="HSlider" parent="Options"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -380.5
+offset_top = -66.0
+offset_right = -43.5
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_ow34m")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_l72w3")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_826wr")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFXSlider" type="HSlider" parent="Options"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -380.5
+offset_top = 34.0
+offset_right = -36.5
+offset_bottom = 115.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_ow34m")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_l72w3")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_ucygd")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[connection signal="pressed" from="MainButtons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainButtons/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MainButtons/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="Options/DisplayToggle" to="Options" method="_on_display_toggle_toggled"]
+[connection signal="value_changed" from="Options/MusicSlider" to="Options" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options/SFXSlider" to="Options" method="_on_sfx_slider_value_changed"]

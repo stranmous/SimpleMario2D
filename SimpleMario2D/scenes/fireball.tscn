@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu1xce27sl27d"]
+
+[ext_resource type="Script" uid="uid://clfokokedynui" path="res://scripts/fireball.gd" id="1_1gl40"]
+[ext_resource type="Texture2D" uid="uid://dpsjijvmws1hj" path="res://assets/fire.png" id="2_1gl40"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cb14k"]
+radius = 100.62306
+
+[node name="Fireball" type="Area2D"]
+position = Vector2(415, 491)
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_1gl40")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-115.00001, -130.00003)
+scale = Vector2(1, 1.681)
+texture = ExtResource("2_1gl40")
+region_enabled = true
+region_rect = Rect2(87, 22, 194, 101)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-109.999985, -129.99998)
+shape = SubResource("CircleShape2D_cb14k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

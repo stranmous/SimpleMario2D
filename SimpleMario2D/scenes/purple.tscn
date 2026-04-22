@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://2hgq4ir3fgx5"]
+
+[ext_resource type="Script" uid="uid://bttmsxh6e3nca" path="res://scripts/purple.gd" id="1_buwfc"]
+[ext_resource type="Texture2D" uid="uid://chi3srw0ju142" path="res://assets/sprites/slime_purple.png" id="2_buwfc"]
+[ext_resource type="PackedScene" uid="uid://blvwdlr0punbb" path="res://scenes/killzone.tscn" id="3_2k6i6"]
+[ext_resource type="AudioStream" uid="uid://dng4pc0m8d78o" path="res://assets/sounds/enemy_impact.ogg" id="4_0t4of"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t4of"]
+atlas = ExtResource("2_buwfc")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k6i6"]
+atlas = ExtResource("2_buwfc")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsx65"]
+atlas = ExtResource("2_buwfc")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpuvs"]
+atlas = ExtResource("2_buwfc")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd6lc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t4of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k6i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsx65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpuvs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6pvg"]
+size = Vector2(12, 12)
+
+[node name="purple" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_buwfc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_fd6lc")
+autoplay = "default"
+frame_progress = 0.048315544
+
+[node name="killzone" parent="." instance=ExtResource("3_2k6i6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_n6pvg")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(-1, -8)
+target_position = Vector2(13, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(1, -7)
+target_position = Vector2(-13, 0)
+
+[node name="impact" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0t4of")
+bus = &"SFX"
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+position = Vector2(0, -9)
+scale = Vector2(20.665188, 7.6600194)
+target_position = Vector2(0, -1.5203707)
+collision_mask = 2
+hit_from_inside = true
