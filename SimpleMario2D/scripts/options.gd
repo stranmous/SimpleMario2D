@@ -26,7 +26,7 @@ func _on_display_toggle_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) # Replace with function body.
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _on_music_slider_value_changed(value: float) -> void:
