@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed = 400
-# This direction variable will be changed by the Player script when spawned
+
 var direction = 1 # 1 = Right, -1 = Left
 
 func _physics_process(delta):
