@@ -36,4 +36,8 @@ This game is a beginner-friendly project focused on implementing core gameplay e
 * Optimize performance
 * Refactor code for better structure
 
-Now do the one thing people always forget: **actually fill in the placeholders** instead of committing this like a template fossil.
+## 🙏 Credits
+
+This project was created with the help of tutorials by [**Brackeys**](https://www.youtube.com/@Brackeys).
+Some of the sprites and assets used in this game were also provided through his tutorial resources.
+  
