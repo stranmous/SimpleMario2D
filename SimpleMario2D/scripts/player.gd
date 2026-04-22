@@ -8,13 +8,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-### NEW: VARIABLES FOR UPGRADES ###
-# IMPORTANT: Change this path if your fireball was saved somewhere else!
 const FIREBALL_SCENE = preload("res://scenes/fireball.tscn")
-# Variables for double jump tracking
 var jump_count = 0
 var max_jumps = 1
-###################################
 
 
 func _physics_process(delta):
@@ -22,19 +18,14 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# --- UPDATED JUMP LOGIC ---
-	
-	### NEW: Update max jumps based on global purchase ###
 	if GameData.has_double_jump:
 		max_jumps = 2
 	else:
 		max_jumps = 1
 
-	# Reset jump count when landing
 	if is_on_floor():
 		jump_count = 0
 		
-	# Handle Jump (Modified to support double jump)
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			# Standard first jump
@@ -44,10 +35,8 @@ func _physics_process(delta):
 			# Double jump (only if in air AND have jumps left)
 			velocity.y = JUMP_VELOCITY
 			jump_count += 1
-	# --------------------------
 
-	# --- NEW SHOOTING INPUT ---
-	### NEW: Check for shoot input based on Input Map settings ###
+	# In-progress
 	if Input.is_action_just_pressed("shoot"):
 		if GameData.throwable_ammo > 0:
 			shoot_fireball()
@@ -83,8 +72,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-### NEW FUNCTION: SHOOTING LOGIC ###
+#In-progress:
 func shoot_fireball():
 	var fireball = FIREBALL_SCENE.instantiate()
 	
